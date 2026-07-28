@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axolotl Client Launcher</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for gaming icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <h2><i class="fa-solid fa-shield-cat"></i> AXOLOTL</h2>
+        </div>
+        <ul class="nav-links">
+            <li class="active"><a href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fa-solid fa-folder-open"></i> Versions</a></li>
+            <li><a href="#"><i class="fa-solid fa-store"></i> Cosmetics</a></li>
+            <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <span class="status-dot"></span> Online v1.1
+        </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <h1>Dashboard Hub</h1>
+            <div class="user-profile">
+                <i class="fa-solid fa-user-circle"></i>
+                <span>Player</span>
+            </div>
+        </header>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- Left Column: Launcher Controls & Dropdown -->
+            <div class="col-left">
+                <div class="card launch-card">
+                    <h2><i class="fa-solid fa-rocket"></i> Launch Client</h2>
+                    <p>Select your preferred U-build version and start playing.</p>
+                    
+                    <div class="form-group">
+                        <label for="client-version">Client Version Build:</label>
+                        <select id="client-version" class="styled-select">
+                            <option value="axolotlclientU1.html">axolotlclientU1.html (Stable v1.0)</option>
+                            <option value="axolotlclientU2.html">axolotlclientU2.html (Beta v1.1)</option>
+                            <option value="axolotlclientU3.html">axolotlclientU3.html (Nightly Build)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-launch" onclick="launchGame()">
+                        <i class="fa-solid fa-play"></i> LAUNCH MINECRAFT
+                    </button>
+                </div>
+
+                <div class="card stats-card">
+                    <h3>Quick Status</h3>
+                    <div class="stat-row">
+                        <span>FPS Booster:</span> <span class="badge green">Enabled</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Anti-Nuke Protection:</span> <span class="badge blue">Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Live Updates & Patch Notes Feed -->
+            <div class="col-right">
+                <div class="card updates-card">
+                    <h2><i class="fa-solid fa-bullhorn"></i> Latest Client Updates</h2>
+                    <div class="updates-feed">
+                        <div class="update-item">
+                            <span class="update-date">July 2026</span>
+                            <h4>Axolotl Client U-Builds Drop</h4>
+                            <p>Added custom HTML/CSS runtime frames, integrated optimized WebSocket stability, and fixed overlay bugs across all U1-U3 branches.</p>
+                        </div>
+                        <div class="update-item">
+                            <span class="update-date">June 2026</span>
+                            <h4>Enhanced Security Update</h4>
+                            <p>Integrated automated audit-log tracking for anti-nuke modules and upgraded core performance speeds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function launchGame() {
+            const selectedVersion = document.getElementById('client-version').value;
+            const btn = document.querySelector('.btn-launch');
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> INITIALIZING ${selectedVersion}...`;
+            btn.style.background = '#27ae60';
+            
+            setTimeout(() => {
+                alert(`Successfully initialized Axolotl Client using ${selectedVersion}!`);
+                btn.innerHTML = `<i class="fa-solid fa-play"></i> LAUNCH MINECRAFT`;
+                btn.style.background = '#5865F2';
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
